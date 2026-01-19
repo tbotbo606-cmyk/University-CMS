@@ -4,18 +4,17 @@
 A console-based Java application for managing university courses, users, enrollments, and grades. This project demonstrates core Object-Oriented Programming (OOP) principles: **Inheritance**, **Polymorphism**, **Encapsulation**, and **Abstraction**.
 
 ---
-
-## Team Information
-**Group Members:**
-1. [Student 1 Name] - User Management (Component 1)
-2. [Student 2 Name] - User Management (Component 1)
-3. [Student 3 Name] - Course Management (Component 2)
-4. [Student 4 Name] - Enrollment System (Component 3)
-5. [Student 5 Name] - Grade Management (Component 4)
-6. [Student 6 Name] - Notification System (Component 5)
-7. [Student 7 Name] - Reporting System (Component 6)
-8. [Student 8 Name] - Authentication & Data Persistence (Components 7 & 8)
-
+Team Members
+| Name | Student ID | Component Assigned |
+|------|------------|--------------------|
+| [mohamedelmugtaba hassan ahmed ] | [30284/2025] | User Management & Auth |
+| [Ahmed mohammed elfakei  adam] | [29374/2025] | Course Management |
+| [ALI AHMED IBRAHIM MOHAMED] | [30592/2025] | Enrollment System |
+| [ABRAR alsadg] | [30507/2025] | Grade Management |
+| [Omer moawya omer Saeed ] | [26378/2024] | Notification System |
+| [Franck josue ] | [25451/2024 ] | Reporting System |
+| [olgaumwali] | [29874/2025] | Authentication |
+| [Ahmed mudathir amin ] | [30179/2025] | Data Persistence |
 ---
 
 ## Getting Started

@@ -1,0 +1,112 @@
+# University Course Management System
+
+A comprehensive console-based Java application for managing university operations, including users, courses, enrollments, grades, and reports. This project demonstrates core Object-Oriented Programming (OOP) principles: **Inheritance, Polymorphism, Encapsulation, and Abstraction**.
+
+ Table of Contents
+- [Team Members](#-team-members)
+- [Project Overview](#-project-overview)
+- [Features](#-features)
+- [OOP Principles Implemented](#-oop-principles-implemented)
+- [Project Structure](#-project-structure)
+- [How to Run](#-how-to-run)
+- [Data Persistence](#-data-persistence)
+
+ Team Members
+| Name | Student ID | Component Assigned |
+|------|------------|--------------------|
+| [mohamedelmugtaba hassan ahmed ] | [30284/2025] | User Management & Auth |
+| [] | [] | Course Management |
+| [Name 3] | [ID] | Enrollment System |
+| [Name 4] | [ID] | Grade Management |
+| [Name 5] | [ID] | Notification System |
+| [Name 6] | [ID] | Reporting System |
+| [] | [ID] | Authentication |
+| [Name 8] | [ID] | Data Persistence |
+
+ Project Overview
+This system allows:
+- **Admins** to manage users, courses, and generate reports.
+- **Instructors** to assign grades and view rosters.
+- **Students** to enroll/drop courses and view transcripts.
+
+It replaces traditional database systems with a custom **File-based Persistence System** using Java Serialization.
+
+ Features
+- **User Management**: Support for Students and Admins with specific roles.
+- **Course Management**: Create, list, and validate courses.
+- **Enrollment**: Enroll students with validation (Capacity, Prerequisites).
+- **Grading**: Assign numerical scores and auto-calculate Letter Grades & GPA.
+- **Notifications**: Simulate sending Emails and SMS upon key events.
+- **Reports**: Generate dynamic Transcripts and Course Rosters.
+- **Persistence**: All data is saved automatically to `.dat` files.
+
+ OOP Principles Implemented
+
+ 1. Inheritance
+We used inheritance to promote code reuse and establish hierarchical relationships:
+- **Users**: `Student` and `Admin` classes inherit from the abstract base class `User`.
+- **Reports**: `Transcript` and `CourseRoster` inherit from the abstract class `Report`.
+- **Notifications**: `EmailNotification` and `SMSNotification` inherit from `Notification`.
+
+ 2. Polymorphism
+We achieved polymorphism through method overriding and interfaces:
+- **Notifications**: The `send()` method behaves differently for `EmailNotification` (prints email format) vs `SMSNotification` (prints short message), even when called from the same list.
+- **Reporting**: The `generateReport()` method is overridden in each report subclass to format output specifically for that report type.
+- **Service Interfaces**: `NotificationManager` implements `NotificationService`, allowing loose coupling.
+
+ 3. Encapsulation
+Data integrity is maintained by:
+- Marking all fields in models (`Student`, `Course`, `Grade`) as `private`.
+- Providing public `getters` and `setters` with validation logic (e.g., GPA cannot be negative).
+- Hiding the internal file handling logic within the `UniversityDataRepository`.
+
+ 4. Abstraction
+Complexity is hidden using abstract classes and interfaces:
+- **Interfaces**: `DataRepository`, `NotificationService`, `ReportGenerator` define *what* needs to be done without specifying *how*.
+- **Abstract Classes**: `User` defines the template for a user but forces subclasses to implement `getRole()`.
+
+ Project Structure
+```text
+src/com/university/
+├── Main.java                   # Entry point (Menu System)
+├── models/                     # Data Classes (User, Course, Grade...)
+├── services/                   # Business Logic (EnrollmentManager, GradeService...)
+├── repositories/               # Data Access Layer (FileRepository)
+├── notifications/              # Notification System Classes
+└── reports/                    # Reporting System Classes
+How to Run
+Prerequisites
+Java Development Kit (JDK) 8 or higher.
+
+Compilation
+Navigate to the project root directory and run:
+javac -d bin src/com/university/*.java src/com/university/models/*.java src/com/university/services/*.java src/com/university/repositories/*.java src/com/university/notifications/*.java src/com/university/reports/*.java
+Execution
+Run the compiled application:
+java -cp bin com.university.Main
+
+Usage Steps (Demo)
+Login as Admin (Default: admin / admin123).
+
+Select "Add New Course" to create a course (e.g., CS101).
+
+Select "Add New User" to create a student.
+
+Logout and login as the new Student.
+
+Select "Enroll in Course" to register for CS101.
+
+Login as Instructor/Admin to assign a grade.
+
+Login as Student again to view the Transcript.
+
+Data Persistence
+The application uses Java Serialization to store data. Upon the first run, the following files are created in the project root:
+
+users.dat
+
+courses.dat
+
+enrollments.dat
+
+grades.dat

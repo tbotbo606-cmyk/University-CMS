@@ -1,8 +1,4 @@
 package com.university.models;
-
-/**
- * Represents a grade record for a student in a course.
- */
 public class Grade {
     private String gradeId;
     private String studentId;
@@ -19,8 +15,6 @@ public class Grade {
         this.letterGrade = letterGrade;
         this.semester = semester;
     }
-
-    // Getters and setters
     public String getGradeId() {
         return gradeId;
     }
@@ -69,7 +63,6 @@ public class Grade {
         this.semester = semester;
     }
 
-    @Override
     public String toString() {
         return "Grade{" +
                 "gradeId='" + gradeId + '\'' +

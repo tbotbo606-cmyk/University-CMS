@@ -1,12 +1,10 @@
 package com.university.models;
 
-/**
- * Abstract base class for all users in the system.
- * Demonstrates INHERITANCE and ABSTRACTION.
- * 
- * TODO: Students should extend this class to create Student, Instructor, and Admin classes.
- */
-public abstract class User {
+import java.io.Serializable;
+
+public abstract class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String userId;
     private String username;
     private String password;
@@ -20,8 +18,6 @@ public abstract class User {
         this.email = email;
         this.fullName = fullName;
     }
-
-    // Getters and setters (ENCAPSULATION)
     public String getUserId() {
         return userId;
     }
@@ -61,20 +57,9 @@ public abstract class User {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
-
-    /**
-     * Abstract method to display user information.
-     * Each subclass must implement this method differently (POLYMORPHISM).
-     */
     public abstract void displayInfo();
 
-    /**
-     * Abstract method to get user role.
-     * @return The role of the user (e.g., "STUDENT", "INSTRUCTOR", "ADMIN")
-     */
     public abstract String getRole();
-
-    @Override
     public String toString() {
         return "User{" +
                 "userId='" + userId + '\'' +

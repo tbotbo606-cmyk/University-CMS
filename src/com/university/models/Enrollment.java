@@ -1,16 +1,14 @@
 package com.university.models;
 
-/**
- * Represents an enrollment record linking a student to a course.
- * 
- * TODO: Add enrollment status and timestamp tracking.
- */
-public class Enrollment {
+import java.io.Serializable;
+public class Enrollment implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String enrollmentId;
     private String studentId;
     private String courseCode;
     private String semester;
-    private String status; // "ACTIVE", "DROPPED", "COMPLETED"
+    private String status;
 
     public Enrollment(String enrollmentId, String studentId, String courseCode, String semester) {
         this.enrollmentId = enrollmentId;
@@ -19,8 +17,6 @@ public class Enrollment {
         this.semester = semester;
         this.status = "ACTIVE";
     }
-
-    // Getters and setters
     public String getEnrollmentId() {
         return enrollmentId;
     }
@@ -60,8 +56,6 @@ public class Enrollment {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    @Override
     public String toString() {
         return "Enrollment{" +
                 "enrollmentId='" + enrollmentId + '\'' +

@@ -1,15 +1,11 @@
 package com.university.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+public class Course implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-/**
- * Represents a course in the university system.
- * Demonstrates ENCAPSULATION.
- * 
- * TODO: Add validation methods and business logic for course management.
- */
-public class Course {
     private String courseCode;
     private String title;
     private int credits;
@@ -27,12 +23,9 @@ public class Course {
         this.enrolledStudents = new ArrayList<>();
         this.prerequisites = new ArrayList<>();
     }
-
-    // Getters and setters
     public String getCourseCode() {
         return courseCode;
     }
-
     public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
@@ -74,11 +67,11 @@ public class Course {
     }
 
     public List<String> getEnrolledStudents() {
-        return new ArrayList<>(enrolledStudents); // Return copy to protect internal list
+        return new ArrayList<>(enrolledStudents);
     }
 
     public List<String> getPrerequisites() {
-        return new ArrayList<>(prerequisites); // Return copy to protect internal list
+        return new ArrayList<>(prerequisites);
     }
 
     public void addPrerequisite(String courseCode) {
@@ -87,19 +80,10 @@ public class Course {
         }
     }
 
-    /**
-     * Check if the course is full.
-     * @return true if course is at capacity, false otherwise
-     */
     public boolean isFull() {
         return enrolledStudents.size() >= capacity;
     }
 
-    /**
-     * Add a student to the course.
-     * @param studentId The ID of the student to add
-     * @return true if student was added, false if course is full
-     */
     public boolean addStudent(String studentId) {
         if (!isFull() && !enrolledStudents.contains(studentId)) {
             enrolledStudents.add(studentId);
@@ -108,11 +92,6 @@ public class Course {
         return false;
     }
 
-    /**
-     * Remove a student from the course.
-     * @param studentId The ID of the student to remove
-     * @return true if student was removed, false if student was not enrolled
-     */
     public boolean removeStudent(String studentId) {
         return enrolledStudents.remove(studentId);
     }
@@ -121,7 +100,6 @@ public class Course {
         return enrolledStudents.size();
     }
 
-    @Override
     public String toString() {
         return "Course{" +
                 "courseCode='" + courseCode + '\'' +
